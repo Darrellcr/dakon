@@ -11,36 +11,77 @@ def main() -> None:
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     screen.fill('#DCDDD8')
     pygame.display.set_caption('Button demo')
-    button = Pocket(
+
+    buttonBottom =[]
+    buttonTop = []
+    jumlahButton = 8
+    available = 530 // (jumlahButton + 1)
+
+    for i in range (jumlahButton):
+        buttonBottom.append(Pocket(
         text=0, 
         size=(50, 40), 
-        pos=(SCREEN_WIDTH/2-70, SCREEN_HEIGHT/2-30),
+        pos=(135 + (available) * (i+1) - 25 , SCREEN_HEIGHT/2 + 150 - 40),
         color='blue',
         on_hover_color='green',
-        on_click_color='red')
-    button1 = Pocket(
-        text=0, 
-        size=(50, 40),
-        pos=(SCREEN_WIDTH/2+20, SCREEN_HEIGHT/2-30),
-        color='blue',
-        on_hover_color='green',
-        on_click_color='red')
+        on_click_color='red',))
 
-    square = Square(
+        buttonTop.append(Pocket(  
+        text=0, 
+        size=(50, 40), 
+        pos=(135 + (available) * (i+1) - 25, SCREEN_HEIGHT/2 - 150),
+        color='blue',
+        on_hover_color='green',
+        on_click_color='red'))
+
+
+    # button1 = Pocket(
+    #     text=0, 
+    #     size=(50, 40), 
+    #     pos=(135 + 133  - 25, SCREEN_HEIGHT/2 - 150/2 - 80),
+    #     color='blue',
+    #     on_hover_color='green',
+    #     on_click_color='red'
+    #     )
+
+    # button2 = Pocket(
+    #     text=0, 
+    #     size=(50, 40), 
+    #     pos = (135 + 133 - 25 + 133 - 25, SCREEN_HEIGHT/2 + 150/2 + 50),
+    #     color='blue',
+    #     on_hover_color='green',
+    #     on_click_color='red')
+
+    # button3 = Pocket(
+    #     text=0, 
+    #     size=(50, 40), 
+    #     pos = (135 + 133 - 25 + 133 - 25 + 133 - 25, SCREEN_HEIGHT/2 + 150/2 + 50),
+    #     color='blue',
+    #     on_hover_color='green',
+    #     on_click_color='red')
+
+    square1 = Square(
         text=10,
-        size=(70, 100),
-        pos=(10, 10),
+        size=(105, 150),
+        pos=(30, SCREEN_HEIGHT/2 - 150/2),
         color=(255,255,0)
     )
 
-    arrow_up = ArrowUp(
-        size=(30, 20),
-        pos=(SCREEN_WIDTH-50, 10),
-        color='red',
-        on_hover_color='cyan',
-        on_click_color='blue',
-        box_to_update=square
+    square2 = Square(
+        text=10,
+        size=(105, 150),
+        pos=(SCREEN_WIDTH - 105 - 30, SCREEN_HEIGHT/2 - 150/2),
+        color=(255,255,0)
     )
+
+    # arrow_up = ArrowUp(
+    #     size=(30, 20),
+    #     pos=(SCREEN_WIDTH-50, 10),
+    #     color='red',
+    #     on_hover_color='cyan',
+    #     on_click_color='blue',
+    #     box_to_update=square
+    # )
 
     
     while True:
@@ -49,10 +90,18 @@ def main() -> None:
                 pygame.quit()
                 exit()
 
-        button1.draw(screen)
-        button.draw(screen)
-        square.draw(screen)
-        arrow_up.draw(screen)
+        # button1.draw(screen)
+        # button1.draw(screen)
+        # button2.draw(screen)
+        # button3.draw(screen)
+        for j in buttonTop :
+            j.draw(screen)
+        for i in buttonBottom :
+            i.draw(screen)
+        square1.draw(screen)
+        square2.draw(screen)
+        # button1.draw(screen)
+        # arrow_up.draw(screen)
 
         pygame.display.update()
 
