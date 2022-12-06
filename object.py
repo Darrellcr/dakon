@@ -56,7 +56,14 @@ class Pocket:
         self.default_color = color
         self.on_hover_color = on_hover_color
         self.on_click_color = on_click_color
-        self.node = None
+
+    @property
+    def node(self):
+        return self.box.node
+    
+    @node.setter
+    def node(self, n):
+        self.box.node = n
 
     def draw(self, surface: pygame.Surface) -> None:
         self.check_clicked()
