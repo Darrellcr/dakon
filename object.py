@@ -20,6 +20,7 @@ class Square:
         self.text_surf = self.font.render(f'{self.text}', True, '#FFFFFF')
         self.text_rect = self.text_surf.get_rect(
             center=self.container_rect.center)
+        self.node = None
 
     def draw(self, surface: pygame.Surface) -> None:
         pygame.draw.rect(surface, self.container_color,
@@ -55,6 +56,7 @@ class Pocket:
         self.default_color = color
         self.on_hover_color = on_hover_color
         self.on_click_color = on_click_color
+        self.node = None
 
     def draw(self, surface: pygame.Surface) -> None:
         self.check_clicked()
@@ -85,6 +87,8 @@ class Pocket:
         """
         hal yang terjadi kalo diklik
         """
+
+
         self.box.increase()
 
 
