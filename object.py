@@ -194,7 +194,7 @@ class ArrowDown(Arrow):
             (self.container_rect.center[0], self.container_rect.bottom)
         ))
     
-    def check_clicked(self) -> None:
+    def click(self) -> None:
         self.box_to_update.decrease()
 
 if __name__ == "__main__":
