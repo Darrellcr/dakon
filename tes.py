@@ -74,14 +74,14 @@ def main() -> None:
         color=(255,255,0)
     )
 
-    # arrow_up = ArrowUp(
-    #     size=(30, 20),
-    #     pos=(SCREEN_WIDTH-50, 10),
-    #     color='red',
-    #     on_hover_color='cyan',
-    #     on_click_color='blue',
-    #     box_to_update=square
-    # )
+    arrow_up = ArrowUp(
+        size=(30, 20),
+        pos=(SCREEN_WIDTH-50, 10),
+        color='red',
+        on_hover_color='cyan',
+        on_click_color='blue',
+        box_to_update=square1
+    )
 
     
     while True:
@@ -98,6 +98,7 @@ def main() -> None:
             j.draw(screen)
         for i in buttonBottom :
             i.draw(screen)
+        arrow_up.draw(screen)
         square1.draw(screen)
         square2.draw(screen)
         # button1.draw(screen)

@@ -1,4 +1,5 @@
 import pygame
+from object import ArrowUp, ArrowDown, Square
 
 
 class Game:
@@ -38,10 +39,16 @@ class Menu:
         self.game: Game = g
         self.is_displaying = False
 
+        # create object menu
+
+
     def display(self) -> None:
         self.game.screen.fill('#000000')  # bg color
         while self.is_displaying:
             self.check_events()
+
+            # draw object menu
+
             pygame.display.update()
 
     def check_events(self) -> None:
