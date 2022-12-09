@@ -44,48 +44,53 @@ class Menu:
         text = "Biji dakon",
         size = (190,100),
         pos = (70,90),
-        color = "#AFBFDB",
+        color = "#C0EEE4",
+        font_color="black"
         )
 
         self.squareArena = Square(
             text = "Arena dakon",
             size=(190,100),
             pos=(70,300),
-            color="#AFBFDB"
+            color="#C0EEE4",
+            font_color="black"
         )
 
         self.squarePanahAtas = Square(
         text =  "->",
         size = (40,40),
         pos = (290,120),
-        color = "black",
+        color = "#B6E2A1",
         )
 
         self.squarePanahBawah = Square(
         text =  "->",
         size = (40,40),
         pos = (290,330),
-        color = "black",
+        color = "#B6E2A1",
         )
 
         self.squareJumlah1 = Square(
         text = 5,
         size = (190,100),
         pos = (360,90),
-        color = "#B5E3D2",
+        color = "#C0EEE4",
+        font_color="black"
         )
 
         self.squareJumlah2 = Square(
         text = 5,
         size = (190,100),
         pos = (360,300),
-        color = "#B5E3D2",
+        color = "#C0EEE4",
+        font_color="black"
+
         )
 
         self.arrowBijiUp = ArrowUp(
             size=(80,40),
             pos=(570,90),
-            color="#C46AC0",
+            color="#F8F988",
             on_hover_color="#030202",
             on_click_color="#D195ED",
             box_to_update=self.squareJumlah1
@@ -94,7 +99,7 @@ class Menu:
         self.arrowBijidown = ArrowDown(
             size=(80,40),
             pos=(570,150),
-            color="#C46AC0",
+            color="#F8F988",
             on_hover_color="#030202",
             on_click_color="#D195ED",
             box_to_update=self.squareJumlah1
@@ -103,7 +108,7 @@ class Menu:
         self.arrowArenaUp = ArrowUp(
             size=(80,40),
             pos=(570,300),
-            color="#C46AC0",
+            color="#F8F988",
             on_hover_color="#030202",
             on_click_color="#D195ED",
             box_to_update=self.squareJumlah2
@@ -112,7 +117,7 @@ class Menu:
         self.arrowArenaDown = ArrowDown(
             size=(80,40),
             pos=(570,360),
-            color="#C46AC0",
+            color="#F8F988",
             on_hover_color="#030202",
             on_click_color="#D195ED",
             box_to_update=self.squareJumlah2
@@ -120,7 +125,7 @@ class Menu:
 
 
     def display(self) -> None:
-        self.game.screen.fill('#F9DED7')  # bg color
+        self.game.screen.fill('#FF9E9E')  # bg color
         while self.is_displaying:
             self.check_events()
 
