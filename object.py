@@ -8,7 +8,8 @@ class Square:
         text,
         size: tuple[int, int],
         pos: tuple[int, int],
-        color
+        color,
+        font_color='#FFFFFF'
     ) -> None:
         # container
         self.container_rect = pygame.Rect(pos, size)
@@ -17,7 +18,8 @@ class Square:
         self.text = text
         self.font = pygame.font.SysFont('candara', 25)
         self.font.set_bold(True)
-        self.text_surf = self.font.render(f'{self.text}', True, '#FFFFFF')
+        self.font_color = font_color
+        self.text_surf = self.font.render(f'{self.text}', True, self.font_color)
         self.text_rect = self.text_surf.get_rect(
             center=self.container_rect.center)
         self.node = None
@@ -28,7 +30,7 @@ class Square:
         surface.blit(self.text_surf, self.text_rect)
 
     def update_text(self) -> None:
-        self.text_surf = self.font.render(f'{self.text}', True, '#FFFFFF')
+        self.text_surf = self.font.render(f'{self.text}', True, self.font_color)
         self.text_rect = self.text_surf.get_rect(
             center=self.container_rect.center)
 
@@ -49,9 +51,10 @@ class Pocket:
         pos: tuple[int, int],
         color,
         on_hover_color,
-        on_click_color
+        on_click_color,
+        font_color='#FFFFFF'
     ) -> None:
-        self.box = Square(text, size, pos, color)
+        self.box = Square(text, size, pos, color, font_color)
         self.is_clicked = False
         self.default_color = color
         self.on_hover_color = on_hover_color
