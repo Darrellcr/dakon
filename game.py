@@ -167,7 +167,7 @@ class Menu:
         )
 
     def display(self) -> None:
-        self.game.screen.fill('#F9DED7')  # bg color
+        self.game.screen.fill('#FF9E9E')  # bg color
         while self.is_displaying:
             self.check_events()
 
