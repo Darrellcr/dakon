@@ -68,7 +68,7 @@ def main() -> None:
     )
 
     square2 = Square(
-        text=10,
+        text=0,
         size=(105, 150),
         pos=(SCREEN_WIDTH - 105 - 30, SCREEN_HEIGHT/2 - 150/2),
         color=(255,255,0)
@@ -95,12 +95,12 @@ def main() -> None:
         # button2.draw(screen)
         # button3.draw(screen)
         for j in buttonTop :
-            j.draw(screen)
+            j.draw(screen, True)
         for i in buttonBottom :
-            i.draw(screen)
+            i.draw(screen, True)
         arrow_up.draw(screen)
-        square1.draw(screen)
-        square2.draw(screen)
+        square1.draw(screen, True)
+        square2.draw(screen, True)
         # button1.draw(screen)
         # arrow_up.draw(screen)
 
