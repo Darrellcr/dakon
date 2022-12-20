@@ -147,7 +147,8 @@ class CircularLinkedList:
 
     def capture_opposite(self, node: Node):
         if node.value.owner == 1:
-            self.head.value.text += node.opposite.value.text
+            self.head.value.text += node.opposite.value.text + 1
         else:
-            self.tail.value.text += node.opposite.value.text
+            self.tail.value.text += node.opposite.value.text + 1
         node.opposite.value.text = 0
+        node.value.text = 0
