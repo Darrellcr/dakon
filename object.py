@@ -120,8 +120,8 @@ class Pocket:
 
     def check_clicked(self, game) -> None:
         if (game.is_player1_turn and self.owner == 2) \
-            or (not game.is_player1_turn and self.owner == 1) \
-            or self.click_disabled or self.box.text == 0:
+                or (not game.is_player1_turn and self.owner == 1) \
+                or self.click_disabled or self.box.text == 0:
             return
         is_hovered = self.is_hovered()
         if is_hovered and pygame.mouse.get_pressed()[0]:
@@ -148,6 +148,9 @@ class Pocket:
         pygame.display.update()
         current_node = self.node.prev
         for _ in range(num_marbles):
+            if isinstance(current_node.value, Square) and \
+                    ((current_node.value.owner == 1 and not game.is_player1_turn) or (current_node.value.owner == 2 and game.is_player1_turn)):
+                current_node = current_node.prev
             current_node.value.increase()
             self.play_marble_drop_sound()
             current_node.value.click_disabled = True
@@ -161,12 +164,12 @@ class Pocket:
             return
         opposite_node = last_node_added.opposite
         if opposite_node.value.text > 0 and last_node_added.value.text == 1 and (
-            (last_node_added.value.owner == 1 and game.is_player1_turn) or 
-            (last_node_added.value.owner == 2 and not game.is_player1_turn)):
+            (last_node_added.value.owner == 1 and game.is_player1_turn) or
+                (last_node_added.value.owner == 2 and not game.is_player1_turn)):
             game.linkedlist.capture_opposite(last_node_added)
             self.play_capture_sound()
         self.update_turn(game)
-            
+
     def update_turn(self, game) -> None:
         game.is_player1_turn = not game.is_player1_turn
         if game.is_player1_turn:
@@ -174,10 +177,9 @@ class Pocket:
         else:
             game.square_player_turn.text = 'Turn player 2 (top)'
 
-
     def play_marble_drop_sound(self) -> None:
         pygame.mixer.Sound.play(self.marble_drop_sound)
-    
+
     def play_capture_sound(self) -> None:
         pygame.mixer.Sound.play(self.capture_sound)
 
