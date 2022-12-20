@@ -131,14 +131,14 @@ class CircularLinkedList:
         current_top: Node = self.tail.next
         current_bottom: Node = self.tail.prev
         for i in range(num_pockets_per_row):
-            # update top
+            # update top pocket
             current_top.value.box.container_rect.x = (
                 135 + (available) * (i+1) - 25)
             current_top.value.box.text_rect = current_top.value.box.text_surf.get_rect(
                 center=current_top.value.box.container_rect.center)
             current_top = current_top.next
 
-            # update bottom
+            # update bottom pocket
             current_bottom.value.box.container_rect.x = (
                 135 + (available) * (i+1) - 25)
             current_bottom.value.box.text_rect = current_bottom.value.box.text_surf.get_rect(
